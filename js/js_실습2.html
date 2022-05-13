@@ -7,41 +7,65 @@
     <title>Document</title>
 </head>
  <!-- body 안의 모든 DOM이 생성된 이후에 수행할 함수를 지정 -->
- <body onload="init()">
+ <body onload="ColorText()">
 
+  <style>
+
+    .button {
+      text-align: center;
+      
+    
+    }
+
+    .colorname_text {
+      text-align: center;
+    }
+  </style>
     <script>
       // 바로 수행하는 코드는 body가 완성되기 전에 수행이 되어 버림
       // 그래서 제대로 못 찾는 경우가 생김 (타이밍 이슈) 
-      // let btn = document.getElementById('btn');
-      // btn.innerHTML = 'aaaa';
+      // 예시: let btn = document.getElementById('btn');
+      //       btn.innerHTML = 'aaaa';
   
-      function init() {
-        let btn = document.getElementById('btn');
-        btn.innerHTML = 'aaaa';
-      }
-
-        function setColor() {
-            document.getElementById(color).style.color="#000000";
-        }
+      function ColorText() {
         let color = prompt('값을 입력해주세요');
+        
+        let text= document.getElementById('text')
+        document.getElementById('text').innerText=color;
 
-      if (color == ' ' || name == null) {
-      color = prompt('텍스트값을 입력해주세요');
+        if (color == ' ' || color == null) 
+         alert('텍스트 값을 입력해주세요');
+         return;
+
+
     }
-    else {
-        document.write('color');
-        document.getElementById('color').style.color = "#f00";
-    }
-    
+      
+
+         function Red() {
+            alert('빨간색으로 변경됩니다');
+            let text= document.getElementById('text').style.color = 'red';
+        }
+
+        function Blue() {
+            alert('파란색으로 변경됩니다');
+            let text= document.getElementById('text').style.color = 'blue';
+        }
+
+        function Green() {
+            alert('초록색으로 변경됩니다');
+            let text = document.getElementById('text').style.color = 'green';
+        }
+
     </script>
+    
+    <h1 id="text" class="colorname_text"></h1>
+    <div class="button">
+    <button onclick="Red()" >빨강</button>
+    <button onclick="Blue()" >파랑</button>
+    <button onclick="Green()" >초록</button> 
+    </div>
 
-<button onclick="alert('무슨무슨 색으로 변경됩니다.')">버튼</button>
+
 
 </body>
 </html>
-
-<!-- button:active{
-    background-color:green;
-  } -->
-
- 

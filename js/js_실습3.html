@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
     <style>
-        .button{
-               background-color: gray;
-               border: 1px solid black;
-               width: 150px;
-               height: 50px;
-               color: white;
-               padding: 16px;
-               text-align: center;
-               font-size: 16px;
-               margin: 4px 2px;
-               text-decoration: none;
-               cursor: pointer;
+        div {
+            display: inline-block;
+            border: 1px solid black;
+            width: 130px;
+            height: 20px;
+            padding: 16px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
 
-   
-   
-           }
-           button:focus {
-               background-color: white;
-               color: black;
-           }
-        
-   
-       </style>
-   
+        .box {
+            background-color: grey;
+            color: white;
+        }
 
-           <button class="button">html</button>
-           <button class="button">css</button>
-           <button class="button">javascript</button>
-        
-   </div>
-   
+        .clicked {
+            background-color: white;
+            color: black;
+        }
+    </style>
 
-       
+    <div class="box" id="div1" onclick="mouseChange(this)">html</div>
+    <div class="box" id="div2" onclick="mouseChange(this)">css</div>
+    <div class="box" id="div3" onclick="mouseChange(this)">javascript</div>
+
+    <script>
+        function mouseChange(target) {
+            let boxes = document.getElementsByTagName('div');
+            for (var i = 0; i < boxes.length; i++) {
+                if (boxes[i] == target) {
+                    boxes[i].className = "clicked";
+                } else {
+                    boxes[i].className = "box";
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>
-
-
-
-
-
-   
-           <!-- <button class="button" onClick="jQuery(this).toggleClass('active')">html</button>
-           <button class="button" onClick="jQuery(this).toggleClass('active')">css</button>
-           <button class="button" onClick="jQuery(this).toggleClass('active')">javascript</button> -->
