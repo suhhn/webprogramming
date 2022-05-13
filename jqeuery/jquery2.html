@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>  
+
+    <script>
+       //onload
+       $(function () {
+           $('#all_check_button').click(function (){ // 전체 체크 순회
+               $(':checkbox[name=mycheck]').each(function() { // each는 array를 수행시켜주는 for문이라고 생각하자.
+                   this.checked =true;
+
+               });
+           });
+
+           $('#check_number_button').click(function () { // 체크여부 확인
+            if ($(':checkbox[name=mycheck]').is(":checked")==true) {
+                $('#result').text('OK');
+            } 
+            else {
+                $('#result').text('NO');
+                }
+
+          });
+
+
+          // animation
+          $('#box').mouseover(function () {
+              setTimeout( function () {  // setTimeout: 자바스크립트 내장 함수. jquery와는 무관. 타이머 역할
+                $('#box').animate
+              
+            $('#box').animate({
+                left: '+=250px' // += 쓰면 위치 찾아서 계속 간다.
+              }).animate({
+                  top:'+=100px'
+                });
+              }, 100);
+          });
+        
+        // 1초마다 로그 출력
+        setInterval(function (){
+            console.log('1초');
+        });
+           });
+
+    </script>
+    
+    <style>
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            border: 1px solid black;
+        }
+        
+
+
+    </style>
+
+
+
+
+    <form action="">
+    <input type="checkbox" name="mycheck" id="" checked>
+    <input type="checkbox" name="mycheck" id="">
+    <input type="checkbox" name="mycheck" id="">
+    <input type="checkbox" name="mycheck" id="">
+    <input type="checkbox" name="mycheck"id="">
+    <input type="button" id="all_check_button" value="전체체크">
+    <input type="button" id="check_number_button"value="체크확인">
+    <span id="result"></span>
+</form>
+
+<div id="box"></div>
+   
+</body>
+</html>

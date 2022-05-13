@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>1 정보입력</h2>
+    <form action="table.html"></form>
+    <label for="name" ></label>
+    <input type="text" placeholder="이름">
+
+    <br><br>
+
+    <label for="id"></label>
+    <input type="text" placeholder="아이디">
+
+<h6>
+    <label for="pwd"></label>
+    <input type="text" placeholder="비밀번호"> 
+    <a href="">비밀번호도움말</a>
+</h6>
+        
+    <label for="pwd"></label>
+    <input type="text" placeholder="비밀번호 재입력">
+    
+   <br>
+
+  <h6>
+   <select name="mobileN" placeholder="휴대폰번호 입력">
+        <option value="">휴대폰 번호</option>
+        <option value="010">010</option>
+        <option value="016">016</option>
+    </select> 
+    - <input type="text" id="txtMobile2" size="4" onkeypress="onlyNumber();"/>
+    - <input type="text" id="txtMobile3" size="4" />
+  </h6>
+    
+  <h5>
+    <label for="email"></label>
+    <input type="text" placeholder="이메일" size="10">
+    
+        @ <select name="@email">
+            <option value="">선택</option>
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="outlook.kr">outlook.kr</option>
+       </select>
+    </h5>
+    
+    <h6>
+        <select name="mobileN" placeholder="전화번호" style="background-color: #F5F5F5">
+             <option value="">전화번호</option>
+             <option value="02">02</option>
+             <option value="031">031</option>
+             <option value="032">032</option>
+             <option value="044">044</option>
+             <option value="052">052</option>
+
+        </select>
+        - <input type="text" id="txtelep2" size="4" style="background-color: #F5F5F5" onkeypress="onlyNumber();"/>
+        - <input type="text" id="txtelep3" size="4" style="background-color: #F5F5F5"/>
+    </h6>
+
+
+    <h6>
+        <select name="mobileN" placeholder="휴대폰번호 입력" style="background-color: #F5F5F5">
+             <option value="">휴대폰 번호</option>
+             <option value="010">010</option>
+             <option value="016">016</option>
+        </select>
+        - <input type="text" id="txtMobile2" size="4" style="background-color: #F5F5F5" onkeypress="onlyNumber();"/>
+        - <input type="text" id="txtMobile3" size="4" style="background-color: #F5F5F5" />
+            <input type="submit" value="휴대폰 인증">
+
+            <br>
+            <label><input type="radio" value="인증받은 휴대폰 번호를 대표번호로 사용">인증받은 휴대폰 번호를 대표번호로 사용</label>
+            <label><input type="radio" value="다른번호 등록">다른번호 등록</label>
+            <label><input type="radio" value="다음에 등록함">다음에 등록함</label>
+    </h6>
+
+    <label for="post"></label>
+    <input type="text" placeholder="우편번호" style="background-color: #F5F5F5">
+    <input type="button" value="주소찾기">
+
+    <br><br>
+
+    <b>
+     <input type="submit" value="가입신청" style="color:white; background-color: red; height:40px; width:150px; border-color:red;">
+    <input type="reset" value="취소" style= "height:40px; width:150px;">
+    </b>
+    
+   
+
+    <br><br>
+
+   
+</body>
+</html>
+
+<!-- placeholder : 화면에만 보이는 안내문구 -->
+<!-- form box 동그라미 만들기: 폼필드(체크박스,라디오) 
+<input type="radio" id="ex_rd2"> <label for="ex_rd2">체크박스</label>-->

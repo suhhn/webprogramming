@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+// onload
+ $(function() {
+     console.log('onload 후에 동작!') // onload 처음 시작으로 사용하고 싶을 때
+
+
+
+ //onload 시점에 click 이벤트 실행
+  $('#button1').click(function(){
+     console.log('클릭!!!');
+  });
+
+
+  // 기존 javascript 클릭 이벤트 설정 -너무 길다
+  document.getElementById('button2').addEventListener('click', function() {
+      console.log('클릭!!!'); 
+  });
+
+  
+  // 기존 방식과 비슷한 방식
+  $('#button3').on('click',function(){
+     console.log('클릭3!!!');
+  });
+
+  // 이벤트 체인
+  $('#button4').click(function() {
+     console.log('클릭4!!!');
+  }).mouseover(function() {
+      console.log('마우스 오버');
+  }).mouseleave(function() {
+      console.log('마우스 떠났어!!');
+ });
+
+
+  $('#button5').click(function(){
+    //   $('text').html('<b>html</b>');
+    //   $('text').text('<b>html</b>');
+    $('#text').append('hello').append('world')
+    .attr('class','hello').attr('name','world');
+
+ // 속성 바꾸기 : attr 한꺼번에 바꿀 수 있음
+   $('.big-text').attr('name','hello');
+    });
+
+});
+
+
+</script>
+    <!-- div id는 div# 으로 쓰면 된다. -->
+    <div id="title">title</div>
+    <div class="big-text">big-text</div>
+    <div class="big-text">big-text 2</div>
+    <button id="button1">클릭1</button>
+    <button id="button2">클릭2</button>
+    <button id="button3">클릭3</button>
+    <button id="button4">클릭4</button>
+
+    <p id="text">글씨자리</p>
+    <button id="button5">클릭5</button>
+
+</body>
+</html>

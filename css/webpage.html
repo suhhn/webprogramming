@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="page"> 
+        <header>   <!-- header  생성 -->
+            <div id="bookmark">
+                <a href="http://127.0.0.1:5500/CSS/%EB%B6%81%EB%A7%88%ED%81%ACweb.html">☆</a>
+            </div>
+        
+        
+            <div id="top_menu">
+                
+                <a href="http://127.0.0.1:5500/CSS/webpage%EB%A7%8C%EB%93%A4%EA%B8%B0.html">Home</a> 
+                <a href="http://127.0.0.1:5500/HTML/%EC%8B%A4%EC%8A%B52.html">About</a> 
+                <a href="http://127.0.0.1:5500/CSS/position.html">Projects</a>
+                <a href="http://127.0.0.1:5500/HTML/form7.html">Contact</a>
+        
+            </div>
+        </header> 
+
+    </div>
+
+    <style>
+    *{margin: 0px; padding:0px;}
+    a{text-decoration-line: none;}  
+
+        .header { 
+            position: flex;
+            width: 1000vh;
+            background-color: rgb(61, 74, 90);
+            color: white;
+            padding:25px 
+           
+            
+        
+        }
+
+        #bookmark { 
+            position:absolute;
+            top: 10px;
+            left: 10px;
+
+        }
+
+        #top_menu { 
+            position: absolute;
+            right: 30px;
+            top: 10px;
+
+        }
+        #bookmark a{color: white; text-decoration: none;}
+        #top_menu a{color: white;}
+        
+
+        .pic { 
+           position: relative;
+           top: -5px;
+           height: 100vh;
+           background-image: url('https://t1.daumcdn.net/cfile/tistory/99356C355EAF84191D');
+           background-repeat: no-repeat;
+           background-size: cover;
+        } 
+
+        .text { 
+            position: absolute;
+            text-align: center;
+            /* 글자 정중앙 위치시키기 */ 
+            top: 50%;      
+            left: 50%;
+            transform: translate(-50%,-50%);
+            margin:0 auto;
+            font-size: 25px;
+            font-weight: bold;
+
+            
+        } 
+        
+        .button {
+            border-style: solid;
+            border-width: 2.5px;
+            position: absolute;
+            text-align: center;
+            /* 버튼 위치 조정 */ 
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 20px;
+            font-weight: lighter;
+            white-space: nowrap;  
+            
+
+        }
+        a{color: white;}
+        
+
+    </style>
+
+
+    <div class="header"></div>
+    <div class="pic">
+        <div class="text"> 안녕하세요, 제 이름은 <span style="color:rgb(255, 208, 235)">오수현</span>입니다. <br> 저는 프론트엔드 개발자입니다.</div>
+        <a href="https://github.com/" class="button">View my work &#10162;</a>
+    </div>
+
+
+
+
+</body>
+</html>

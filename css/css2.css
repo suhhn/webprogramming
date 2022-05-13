@@ -1,0 +1,45 @@
+/* 태그 선택자*/
+div {
+    background-color: red;
+}
+
+body {
+    background-color: hotpink;
+}
+
+p {
+    color: blue;
+
+
+}
+
+/* class 선택자*/
+.red-text {
+    color: red;
+}
+
+.yellow-text {
+    color: yellow;
+}
+
+.big-size {
+    font-size: 50px;
+}
+
+.border {
+    border-style: dashed;
+    /*dashed는 ... 을 의미*/
+    border-width: 10px;
+
+}
+
+p.border {
+    border-style: solid;
+    border-width: 10px;
+
+}
+
+/* id 셀렉터: # 사용*/
+#div1 {
+    background-color: antiquewhite;
+}

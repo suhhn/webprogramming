@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .big-text {
+            font-size: xx-large;
+
+        }
+        .small-text {
+            font-size: small;
+
+        }
+    </style>
+    <script>
+        function addTag()
+    {
+        document.write('<h1>Hello World</h1>');
+
+    }
+
+    function getTitle() {
+        let title = document.getElementById('title'); // title 가져오기
+       // console.log(title); // return type
+        // alert(title); /// TAG
+        alert(title.textContent); // 내용물
+    }
+
+    function getItems() { // item 가져오기
+        let items = document.getElementsByClassName('item');
+
+        // 첫 번째 아이템
+        let firstItem = items[0];
+
+        //첫 번째 아이템의 내용
+        let content = firstItem.textContent;
+
+        // 내용 바꾸기
+        firstItem.textContent = '바보야';
+    }
+    </script> 
+
+    <button onclick="addTag()">TAG 추가</button>
+    <button onclick="getTitle()">TITLE 얻기</button>
+
+    <h1 id="title">Hello World</h1>
+
+<!-- ul>li*4 -->
+    <ul>
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+        <li class="item">4</li>
+    </ul>
+
+    <div id="target" class=".small-text" onclick="changeClassName()">Hello</div>
+
+    <script>
+        let isSmallext = true;
+
+        function changeClassName() {
+            let target = document.getElementById('target');
+
+            if (isSmallText) {
+                target.ClassName='big-text';
+                isSmallText = false;
+            }
+            else {
+                target.ClassName = 'small-text';
+                isSmallText = true;
+            }
+        }
+       
+    </script>
+
+    <!-- <img src="https://t1.daumcdn.net/cfile/tistory/99356C355EAF84191D" alt="구름" width="200"
+    onclick="ChangeHtml()"> -->
+
+    <div id="pic" onclick="ChangeHtml()">
+        <img src="https://t1.daumcdn.net/cfile/tistory/99356C355EAF84191D" alt="구름" width="200"
+        onclick="ChangeHtml()"></div>
+
+    <script>
+        function ChangeHtml() {
+            let pic = document.getElementById('pic');
+            pic.innerHTML = "<h1>뿅!!</h1>";
+            // pic.textContent ="<h1>뿅!!</h1>";
+        }
+    </script>
+</body>
+</html>
