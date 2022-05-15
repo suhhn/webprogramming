@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그확인</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <style>
+        .checkcontainer {
+            text-align: center;
+            position: relative;
+
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+
+        }
+
+        input[type="button"] {
+            position: absolute;
+            left: 380px;
+            width: 120px;
+            height: 30px;
+            background-color: rgb(223, 220, 220);
+            color: black;
+            border-width: 0.5px;
+
+
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('#all_checkbox').click(function () {
+                if ($('#all_checkbox').is(":checked") == true) {
+                    $('input:checkbox').each(function () {
+                        this.checked = true;
+                    })
+                }
+                else {
+                    $('input:checkbox').each(function () {
+                        this.checked = false;
+                    })
+                };
+            });
+
+
+            $('#log').click(function () {
+                if ($('input:checkbox').is(":checked") == true) {
+                    $("input:checkbox[id=check]:checked").each(function () {
+
+                        var currentRow = $(this).closest('tr');
+                        var title = currentRow.find('td:eq(1)').text();
+
+                        $('#result').text('제목: ' + title + '\n').show();
+
+                    });
+                }
+                else {
+                    ($('input:checkbox').is(":checked") == false)
+                    alert('선택없음');
+                }
+            });
+        });
+
+
+
+    </script>
+    <div class="checkcontainer">
+        <table id=row border=" 1px solid black" width="500" height="400">
+            <tr>
+                <td><input type="checkbox" id="all_checkbox" name=mycheck />확인</td>
+                <td>제목</td>
+                <td>글쓴시간</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="check" name=mycheck /></td>
+                <td class="title">111111</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="check" name=mycheck /></td>
+                <td class="title">22222</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="check" name=mycheck /></td>
+                <td class="title">ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="check" name=mycheck /></td>
+                <td class="title">ㅁㄴㅇㅁㄴㅇ3333</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="check" name=mycheck /></td>
+                <td class="title">ㅁ44444ㅇㅁㄴㅇㅁㄴㅇ</td>
+                <td>11:11:00</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="check" name=mycheck /></td>
+                <td class="title">ㅁㄴ55555ㄴㅇ</td>
+                <td>11:11:00</td>
+            </tr>
+        </table>
+        <br>
+
+        <input type="button" id="log" value="로그"></button>
+        <span id="result"></span>
+    </div>
+
+</body>
+
+</html>
