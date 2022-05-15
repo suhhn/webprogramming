@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+
+        $(function () {
+            $("#submt").click(function () {
+                check();
+            });
+            
+            $('#reset').click(function () {
+                $('#frm').each(function () {
+                    this.reset();
+                });
+
+            });
+        });
+
+
+        $(function check() {
+            let submit = true;
+            // 이메일 형식으로 아이디 입력하기
+            if (!$("#userID").val().includes("@")) {
+                alert("올바르지 않은 이메일 형식입니다.");
+                submit = false;
+            }
+
+            // 비밀번호 5자리 이상
+            else if ($("#pw").val().length < 5) {
+                alert("비밀번호는 5자리 이상 입력해주세요.");
+                submit = false;
+            }
+
+
+            // 성별 1개 이상
+            else if ($("input:checkbox[name=hobby]:checked").length < 1) {
+                alert("하나 이상의 성별을 체크해주세요.");
+                submit = false;
+            }
+
+            // 성별 체크 여부 확인
+            else if ($("input:radio[name=gender]:checked") == false) {
+                submit = false;
+
+            }
+
+            // 직업 1개 이상 선택
+            else if ($("Option[class=job]:selected").val() == false) {
+                submit = false;
+            }
+
+
+            // 취미 3개 이상   // 취미 체크 여부 확인
+            else if ($("input:checkbox[name=hobby]:checked").length < 3) {
+                alert("세개 이상의 취미를 체크해주세요.");
+                submit = false;
+            }
+
+            if (submit == true) {
+                alert("회원가입 완료!");
+
+            }
+            else {
+                alert("다시 작성해주시기 바랍니다.");
+            }
+
+        });
+
+   
+
+    </script>
+    <style>
+        input[type=text],
+        input[type=password] {
+            padding: 5px 10px;
+            /* 상하 우좌 */
+            margin: 3px 0;
+            /* 상하 우좌 */
+            border: 1px solid black;
+            font-size: 10pt;
+
+
+        }
+
+        select {
+            padding: 5px 60px;
+            /* 상하 우좌 */
+            margin: 3px 0;
+            /* 상하 우좌 */
+            font-family: inherit;
+            /* 폰트 상속 */
+            border: 1px solid black;
+            font-size: 10pt;
+
+        }
+
+        input[type=button] {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+
+    <form  action="" id="frm">
+
+
+        아이디 <input type="text" name="userID" id="userID"><br>
+
+        비밀번호 <input type="password" name="pw" id="pw" minlength="5"><br>
+        성별
+        <input type="radio" name="gender[]" value="male">남자
+        <input type="radio" name="gender[]" value="female">여자 <br>
+        직업
+        <select name="job" id="job">
+            <option class="job" value=" "></option>
+            <option class="job" value="researcher">연구원</option>
+            <option class="job" value="public official">공무원</option>
+            <option class="job" value="student">학생</option>
+        </select><br>
+        취미
+        <input type="checkbox" id="hobby" name="hobby[]" value="hobby">개발
+        <input type="checkbox" id="hobby" name="hobby[]" value="game">게임
+        <input type="checkbox" id="hobby" name="hobby[]" value="fishing">낚시 <br>
+        <input type="checkbox" id="hobby" name="hobby[]" valaue="exercise">운동
+        <input type="checkbox" id="hobby" name="hobby[]" valaue="reading">독서
+        <input type="checkbox" id="hobby" name="hobby[]" value="music">음악감상 <br><br>
+
+        <input type="button" id="reset" class="button" value="취소" size="35">
+        <input type="button" id="submit" class="button" value="회원가입" size="35">
+
+
+    </form>
+
+
+
+</body>
+
+</html>
