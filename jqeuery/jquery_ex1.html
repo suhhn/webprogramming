@@ -1,3 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
 
-  
+<body>
+
+    <style>
+        .button {
+            text-align: center;
+        }
+
+        #text {
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function ColorText() { // DOM 순서
+            let color = prompt('값을 입력해주세요');
+            let text = $("#text").text(color); // .text()는 선택한 요소 안의 내용 가져오거나, 다른 내용으로  바꾼다. innerText같은 역할
+
+            if (color == ' ' || color == null)
+                alert('텍스트 값을 입력해주세요');
+            return;
+
+        });
+
+        // 이벤트 체인
+
+        $(function buttonColor() {
+            $("#Red").click(function () {
+                alert('빨간색으로 변경됩니다');
+                $("#text").css('color', 'red');
+            });
+
+            $("#Blue").click(function () {
+                alert('파란색으로 변경됩니다');
+                $("#text").css('color', 'blue');
+            });
+
+            $("#Green").click(function () {
+                alert('초록색으로 변경됩니다');
+                $("#text").css('color', 'green');
+            });
+
+        });
+
+    </script>
+
+    <div id="text" class="colorname_text"></div>
+    <div class="button">
+        <button id="Red">빨강</button>
+        <button id="Blue">파랑</button>
+        <button id="Green">초록</button>
+
+    </div>
+
+</body>
+
+</html>
