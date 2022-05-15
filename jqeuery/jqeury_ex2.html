@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <style>
+        .header {
+            background-color: #3b5998;
+            color: white;
+            padding: 10px;
+        }
+
+        .content {
+            padding: 10px;
+            background-color: rgb(223, 217, 217);
+        }
+
+        #article {
+            background-color: white;
+            margin: 10px;
+        }
+
+        .container {
+            width: 200px;
+        }
+
+        .submit {
+            background-color: #3b5998;
+            border-color: #3b5998;
+            color: white;
+            text-align: center;
+            width: 80px;
+            height: 25px;
+
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+            $('.submit').click(function () {
+                let name = prompt('이름을 입력 해주세요');
+                let text = prompt('기사를 작성해 주세요');
+                let article = (`<div class="Writetext1"><b>${name}</b>${text}</div>`);
+                
+                $('#article').append(article);
+                
+
+            });
+
+
+        });
+
+    </script>
+
+    <div class="container">
+        <div class="header">기사등록하기</div>
+        <div class="content">
+            <div id="article" class="Writetext"></div>
+        </div>
+        <br>
+        <button id="Register" class="submit">등록하기</button>
+
+    </div>
+
+</body>
+
+</html>
