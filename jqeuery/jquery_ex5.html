@@ -55,22 +55,21 @@
 
 
             $('#log').click(function () {
-                if ($('input:checkbox').is(":checked") == true) {
-                    $("input:checkbox[id=check]:checked").each(function () {
+                if  ($('input:checkbox').is(":checked") == true) {
+                    $("input:checkbox[id=check]:checked").each(function() {
 
-                        var currentRow = $(this).closest('tr');
-                        var title = currentRow.find('td:eq(1)').text();
+                    var currentRow =$(this).closest('tr');
+                    var title=currentRow.find('td:eq(1)').text();    
+                      
+                  $('#result').text('제목: '+title+'\n').show();
 
-                        $('#result').text('제목: ' + title + '\n').show();
-
-                    });
-                }
-                else {
-                    ($('input:checkbox').is(":checked") == false)
-                    alert('선택없음');
-                }
             });
+                }
+                else {($('input:checkbox').is(":checked") == false) 
+                alert('선택없음');
+                }
         });
+    });
 
 
 
