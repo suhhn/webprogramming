@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <style>
+        #container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border: 1px solid black;
+            left: 50px;
+            top: 50px;
+            background-image: url(https://mblogthumb-phinf.pstatic.net/20100111_86/red1942_1263211412065aza0S_jpg/%BB%C7%B7%CE%B7%CE-%BD%C7%BF%DC%BC%BC%C6%AE1_red1942.jpg?type=w2);
+            background-size: cover;
+        }
+
+        #Loopy {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+    
+        }
+
+    </style>
+    <div id="container">
+    <img src="../assets/잔망루피.png" id="Loopy" alt="Loopy">
+</div>
+
+    <script>
+        const WIDTH =600;
+        const HEIGHT = 600;
+        let Loopy=$('#Loopy');
+
+        $("body").keydown(function (event) {
+            // 루피 현재 좌표 정보 
+           let left = parseInt((Loopy.css("left").replace("px","")))
+           let top = parseInt((Loopy.css("top").replace("px","")))  //px를 string으로 두고 숫자로 바꿔서 계산하기 위함?
+           let right = left + 100;
+           let bottom = top +100 ;
+           let move = 25; // 이동할 픽셀
+           
+           switch (event.key) {
+        case "ArrowLeft":
+          if (left - move >= 0) {
+            Loopy.css({ left: '-=25px' });
+          }
+          break;
+        case "ArrowRight":
+          if (right + move <= WIDTH) {
+            Loopy.css({ left: '+=25px' });
+          }
+          break;
+        case "ArrowUp":
+          if (top - move >= 0) {
+            Loopy.css({ top: '-=25px' });
+          }
+          break;
+        case "ArrowDown":
+          if (bottom + move <= HEIGHT) {
+            Loopy.css({ top: '+=25px' });
+          }
+          break;
+      }
+    });
+    </script>
+    
+</body>
+</html>
