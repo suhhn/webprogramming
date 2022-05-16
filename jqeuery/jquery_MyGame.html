@@ -30,24 +30,25 @@
 
     #mario {
       position: absolute;
-      width: 100px;
-      height: 100px;
-      bottom: 80px;
+      width: 180px;
+      height: 180px;
+      bottom: 30px;
       left: 20px;
     }
 
     #mariodead {
       position: absolute;
-      width: 100px;
-      height: 100px;
-      bottom: 80px;
+      width: 180px;
+      height: 180px;
+      bottom: 70px;
       left: 20px;
     }
 
     #killer {
       position: absolute;
-      width: 50px;
-      bottom: 80px;
+      width: 170px;
+      height: 170px;
+      bottom: 30px;
       right: -100px;
     }
 
@@ -67,6 +68,7 @@
       position: absolute;
       color: white;
       font-size: 2rem;
+      font-weight: bolder;
       left: 20px;
       top: 20px;
     }
@@ -82,23 +84,54 @@
     }
 
     #gameover {
-        position: absolute;
-        left: 35%;
-        top: 60%;
-        transform: translate(-50%,-50%);
-        width: 300px;
-        height: 300px;
+      position: absolute;
+      left: 35%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
 
     }
-   
-    .game_start_button{
-        position: absolute;
-        left: 30%;
-        top: 10%;
-        width: 300px;
-        height: 50px;
-        transform: translate(-50%,-50%);
-        font-size: 30px;
+
+    .game_start_button {
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      width: 200px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      background-color: rgb(254, 229, 105);
+      border-color: rgb(254, 229, 105);
+    }
+
+    #restart {
+      position: absolute;
+      left: 65%;
+      top: 60%;
+      width: 200px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      background-color: rgb(254, 229, 105);
+      border-color: rgb(254, 229, 105);
+    }
+
+    #leave {
+      position: absolute;
+      left: 145%;
+      top: 60%;
+      width: 200px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      background-color: rgb(254, 229, 105);
+      border-color: rgb(254, 229, 105);
+    }
+
+    .button a {
+      color: black;
+      text-decoration: none;
     }
   </style>
 
@@ -111,10 +144,13 @@
   </div>
   <div id="gameover">
     <img src="https://www.picng.com/upload/game_over/png_game_over_53068.png" alt="gameover">
-    <button class="game_start_button">GAME RESTART</button>
+    <button id="restart" class="game_start_button"><b>GAME RESTART</b></button>
+    <button id="leave" class="button"><a href="http://127.0.0.1:5500/jqeuery/jquery_game%20packaging.html"><b>LEAVE THE
+          GAME</b></a></button>
   </div>
   <div id="start">
-    <button class="game_start_button">GAME START!</button>
+
+    <button class="game_start_button"><b>GAME START!</b></button>
   </div>
 
   <script>
@@ -215,14 +251,14 @@
       setInterval(function () {
         if (isGameOver) {
           gameOver();
-          return score=0;
+          return score = 0;
         } else {
           // 1초에 30번 그리기
 
           // 마리오 사망 체크
           marioDead();
         }
-      }, 1000 / 30);
+      }, 5000 / 30);
     }
 
     $(function () {
@@ -233,5 +269,13 @@
       });
     });
   </script>
+
+  <!-- audio 배경음악 깔기 -->
+  <div>
+    <audio
+      src="https://blogattach.naver.net/f267ee5a467978cde5026651648cf0802b7382c3/20140329_126_blogfile/min10020_1396102298435_rSpnfs_MP3/%C2%AF%B1%B8.MP3"
+      controls loop autoplay></audio>
+  </div>
 </body>
 
+</html>
