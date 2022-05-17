@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 비동기란? 웹페이지를 리로드하지 않고도 데이터를 불러오는 방식
+
+        function loadDoc() {
+          // XMLHttpRequest생성
+         let xhttp = new XMLHttpRequest(); // XMLHttpRequest가 뭔지 mozilla에 검색해서 확인해보기
+
+         // 응답 왔을 때의 콜백 함수 정의
+        xhttp.onreadystatechange = function() { // 함수 지정, 함수도 값으로 취급이 되기 때문에 가능.
+
+            // this.readyState == 4  : 정상완료 (응답이 오면 오류건 어쨌건 정상)
+            // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+            //this.status == 200 : ok라는 의미. success 성공
+            //request에 응답이 오면 무조건 정상완료임. 응답이 안오는게 정상x. 
+            //정상완료 안에서 제대로 된 서버 요청하면 ok전달. 
+            //this.status == 404 서버 입장에서 여기 좀 이상하다?? (Not Found)정상완료여도 사진을 못찼으면 404.
+            //this.status == 200 서버 입장에서 요청한거 잘 받음. 정상 동작이다.(OK)
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses
+
+        if (this.readyState == 4 && this.status == 200) { 
+          document.getElementById("demo").innerHTML = this.responseText; // this라는 것의 responsetext에서 데이터 받아서 demo에 넣겠다.
+      }
+   };
+
+        // 통신방식이나 대상을 설정
+        //방식: GET(읽기), POST(쓰기), PATCH(수정), DELETE, ,,,
+        xhttp.open("GET", "ajax_info.txt", true);
+
+        // 최종적으로 실행함.
+        xhttp.send();
+}
+
+    </script>
+</body>
+<div id="demo"></div>
+<button onclick="loadDoc()">get data</button>
+</html>
