@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie_detail</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        #title #opendate #overview {
+            font-size: 50px;
+            position: absolute;
+        }
+
+    
+        .w3-container {
+            background-size: cover;
+
+        }
+
+        #poster {
+            position: relative;
+            width: 1200px;
+            height: 1000px;
+            object-fit: contain;
+            /*object-fit: contain -> 가로세로 비율은 유지하면서, 컨테이너에 꽉 차도록 설정*/
+            box-shadow: 5px 5px 5px #000;
+            /*박스 기준 그림자 생성*/
+            border-radius: 5%;
+            /*테두리 둥글게*/
+        }
+    </style>
+    <script>
+        $(function () {
+            // javascript get parameter 정도로 검색
+            const queryString = window.location.search;
+            const parameters = new URLSearchParams(queryString);
+            const id = parameters.get('id');
+            // const name = parameters.get('name');
+
+            fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1`)
+                .then(response => response.json())
+                .then(jsonArray => {
+                    let results = jsonArray.results;
+                    let img = "https://image.tmdb.org/t/p/w500";
+                    let index = results.findIndex((element) => id == element.id);
+                    let data = results[index];
+
+                    $('#detail').append(`<div class="w3-container">
+                        <span><h1 id="title">${data.title}</h1></span>
+                            <span><h3 id= "opendate">개봉일 : ${data.release_date}</h3></span>
+
+                <div class="w3-card-4" style="width:50%">
+                 <img id = "poster" src="${img + data.poster_path}" alt="" style="width:100%">
+                 <p id="count">♥${data.vote_count}</p>
+                 <p id="average">★${data.vote_average}</p>
+
+                 <div class="w3-container w3-center">
+                    <p id="overview">${data.overview}</p>
+                          </div>
+                    </div>
+             </div>
+`);
+
+                });
+        });
+    </script>
+    <br><br>
+    <div id="detail"></div>
+</body>
+
+</html>
