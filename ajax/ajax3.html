@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // y=f(x)                      // 수학 
+        // function f(x){ // 내용 }    // js
+        // x => 내용                   // js 화살표 표기법, lambda(람다) 표기법
+        function loadDoc() {
+            fetch('people.json') // reponse라는걸 =>이걸로 받아올거야
+            .then(response => response.json()) // then - Pomise 라고 함. 비동기 코드를 다루는 방식
+            // 기존 방식은 아래와 같음
+            // .then(reponse(response) {
+            //     return response.json();
+            // });
+            .then(json => {
+                document.getElementById("demo").innerHTML = JSON.stringify(json); // JSON.stringify(): json 객체를 글자로 바꿔주는 것
+                console.log(json); // log 보면 json 객체 나옴.
+
+                let result = `${json.name} 의 기술 : ${json.skill}`;
+                document.getElementById("result").textContent = json.name; // 원하는 결과물 뽑아내기
+            });
+        };
+        
+    </script>
+    
+</body>
+<div id="demo"></div>
+<div id="result"></div>
+<button onclick="loadDoc()">get data</button>
+</html>
