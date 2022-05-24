@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- lodash  라이브러리-->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script> 
 </head>
 <body>
 
@@ -17,7 +19,7 @@
           </li>
         </ul>
       </div>
-      
+
     <script>
         let app= new Vue({
             el:'#app',
@@ -29,6 +31,9 @@
             created: function() {
                 //통신
                 this.getPosts();
+
+                // 디바이스 적용된 검색 함수 정의 (lodash 기능: '_' 언더바 사용)
+                this.debouncedSearch = _.debounce(this.search, 1000); // 자바스크립트에서 함수는 값으로 취급된다. (1초 후에 들어가짐: 서버의 부하가 줄어든다.)
             },
             methods: {
                 getPosts: function() {
@@ -40,13 +45,14 @@
                         v.filteredPosts= json;
 
                     })
+                },
+                search: function (val) {
+                    this.filteredPosts = this.posts.filter(post => post.title.includes(val)) 
                 }
             },
             watch: {
                 query : function (val) { // 변겅된 query를 val로 받는다.
-                    this.filteredPosts = this.posts.filter(post => post.title.includes(val)) // 내부적으로 순환하면서 나온것이 오른쪽 조건에 맞으면 취하겠다.
-                    console.log(val);
-
+                 this.debouncedSearch(val);
                 }
             }
         })
