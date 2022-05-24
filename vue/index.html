@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 양방향 바인딩  -->
+    <div id="app">
+        <h3>양방향 바인딩</h3>
+        <input v-model="message">
+        {{ message }}   
+    </div>
+
+<div id="app2">
+    <h3>watch</h3>
+    <input v-model="firstName">
+    <input v-model="lastName">
+    {{ fullName }}
+</div>
+    <script>
+        let app = new Vue({
+            el: '#app', 
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+
+        var vm = new Vue({
+       el: '#app2',
+       data: {
+       firstName: 'Foo',
+       lastName: 'Bar',
+       fullName: 'Foo Bar'
+  },
+     watch: {
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  },
+  created: function()
+  {
+      // 생성자
+      this.greeting(); // this 꼭 써 주어야 접근이 된다. 
+
+      this.bye();
+  },
+  methods: { // 원하는 기능의 메소드를 만들 수 있다.
+      greeting: function() {
+          console.log('Hello');
+      },
+      bye: function () {
+          console.log('bye');
+      }
+  }
+})
+     </script>
+     
+    
+</body>
+</html>
+
+<!-- 데이터 바인딩 : 컴포넌트 템플릿에서 컴포넌트의 상태에 접근해서 연결 관계를 맺는 것 
+     컴포넌트: 상태와 기능을 정의하는 vue (변경사항이 있는 변수들이 상태임.) 
+      상태 : data 옵션-->
+<!-- watch: 특정변수의 값이 바뀌었을 때 뭔가를 하는 것. -->
+<!-- created: 기본 생성자 같은 느낌 -->
